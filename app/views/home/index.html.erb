@@ -3,7 +3,7 @@
   <!-- <p>Signed in as... <%= current_user.name %></p>
   <%#= link_to "Logout", destroy_session_path(current_user), method: :delete %><br /> -->
 <% else %>
-  <h3>Need some Motivation?</h3>
+  <h3>Need Motivation?</h3>
   <p>Create an opponent that will congratulate you for getting stuff done ahead of time...<br /> or motivate you if you fall behind. </p>
 
   <%= form_for(User.new, :as => "user", :url => registration_path("user")) do |f| %>
