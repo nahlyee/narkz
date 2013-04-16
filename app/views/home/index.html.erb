@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+  <% redirect_to users_path %>
+  <!-- <p>Signed in as... <%= current_user.name %></p>
+  <%#= link_to "Logout", destroy_session_path(current_user), method: :delete %><br /> -->
+<% else %>
+  <h3>Need some Motivation?</h3>
+  <p>Create an opponent that will congratulate you for getting stuff done ahead of time...<br /> or motivate you if you fall behind. </p>
+
+  <%= form_for(User.new, :as => "user", :url => registration_path("user")) do |f| %>
+
+	  <div><%= f.label :name %><br />
+	  <%= f.text_field :name %>
+
+	  <div><%= f.label :username %><br />
+	  <%= f.text_field :username %></div>
+
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
+
+	  <div><%= f.label :password %><br />
+	  <%= f.password_field :password %></div><br />
+	  
+	  <button type="submit" class="btn text-center btn-large btn-success">
+			Start a new goal!
+		</button>
+	  
+	<% end %>
+	
+<% end %>
+
+	

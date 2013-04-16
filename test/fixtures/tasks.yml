@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  due_date: 2013-04-11 19:35:20
+  goal_id: 1
+  status: false
+
+two:
+  name: MyString
+  due_date: 2013-04-11 19:35:20
+  goal_id: 1
+  status: false

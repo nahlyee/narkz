@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  
+  <p>Signed in as... <%= current_user.name %></p>
+  <%= link_to "Logout", destroy_session_path(current_user), method: :delete %><br />
+  <%= link_to "Start a new goal", new_user_goal_path %>
+<% else %>
+<% end %>
