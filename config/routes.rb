@@ -1,3 +1,5 @@
+# UserMailer.welcome_email(@user).deliver
+
 Narkz::Application.routes.draw do
 
   get "home/index"
