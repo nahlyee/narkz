@@ -46,7 +46,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        UserMailer.welcome_email(@user).deliver
+        UserMailer.welcome_email(current_user).deliver
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
