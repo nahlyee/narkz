@@ -41,13 +41,13 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = current_user.goals.new(params[:goal])
+    @goal = current_user.goals.build(params[:goal])
     @goal.user = current_user
 
     respond_to do |format|
       if @goal.save
         UserMailer.welcome_email(current_user).deliver
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
+        format.html { redirect_to new_goal_task_path(@goal), notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
         format.html { render action: "new" }

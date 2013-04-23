@@ -24,8 +24,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @task = Task.new
-
+    @goal = Goal.find(params[:goal_id])
+    @task = @goal.tasks.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -40,11 +40,12 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
-
+    @goal = Goal.find(params[:goal_id])
+    @task = @goal.tasks.build(params[:task])
+    
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to profile_path, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
